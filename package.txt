@@ -1,1 +1,2 @@
 - npm i bootstrap --save
+- npm i --save jquery@3.4.1
