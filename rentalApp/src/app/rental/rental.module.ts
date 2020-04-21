@@ -6,7 +6,7 @@ import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 import { RentalListingComponent } from './rental-listing/rental-listing.component';
 import { RentalComponent } from './rental.component';
 import { RentalCardComponent } from '../shared/rental-card/rental-card.component';
-import { UppercasePipe } from '../shared/pipes/uppercase.pipe';
+import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
 
 const routes : Routes = [
   {
@@ -25,7 +25,8 @@ const routes : Routes = [
     RentalListingComponent,
     RentalComponent,
     RentalCardComponent,
-    UppercasePipe
+    UppercasePipe,
+    FirstUpperLetterPipe
   ],
   imports: [
    RouterModule.forChild(routes),
