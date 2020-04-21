@@ -7,9 +7,15 @@
     parent : {{parenData}}
     <app-rental-card 
       [rental]="rental" 
+      [(childData)]="parenData"
+      ></app-rental-card>
+      
+      <!-- 2 way ata binding is transformed into this -->
+      <!-- <app-rental-card 
+      [rental]="rental" 
       [childData]="parenData"
       (childDataChange)="changeParentData($event)"
-      ></app-rental-card>
+      ></app-rental-card> -->
     </div>
   </div>
 </div>

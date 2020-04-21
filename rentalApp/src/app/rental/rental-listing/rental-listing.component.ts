@@ -25,10 +25,6 @@ export class RentalListingComponent implements OnInit, IRental {
     });
   }
 
-  changeParentData(value){
-    this.parenData = value;
-  }
-
   implementMe() {
     return '';
   }

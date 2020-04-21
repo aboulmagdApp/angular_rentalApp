@@ -12,7 +12,7 @@ export class RentalService {
       title: 'central Apartment',
       city: 'New yourk',
       street: 'times square',
-      category: 'apatment',
+      category: 'apartment',
       image: 'http://via.placeholder.com/350x250',
       numOfRooms: 3,
       description: 'very nice apartment',
