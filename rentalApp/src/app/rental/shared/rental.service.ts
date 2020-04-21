@@ -10,7 +10,7 @@ export class RentalService {
     {
       _id: '1',
       title: 'central Apartment',
-      city: 'New yourk',
+      city: 'new yourk',
       street: 'times square',
       category: 'apartment',
       image: 'http://via.placeholder.com/350x250',
@@ -21,9 +21,9 @@ export class RentalService {
       createdAt: '1/1/2020'
     },
     {
-      _id: "2",
-      title: "Central Apartment 2",
-      city: "San Francisco",
+      _id: '2',
+      title: 'Central Apartment 2',
+      city: "san francisco",
       street: "Main street",
       category: "condo",
       image: "http://via.placeholder.com/350x250",
@@ -36,7 +36,7 @@ export class RentalService {
     {
       _id: "3",
       title: "Central Apartment 3",
-      city: "Bratislava",
+      city: "bratislava",
       street: "Hlavna",
       category: "condo",
       image: "http://via.placeholder.com/350x250",
@@ -49,7 +49,7 @@ export class RentalService {
     {
       _id: "4",
       title: "Central Apartment 4",
-      city: "Berlin",
+      city: "berlin",
       street: "Haupt strasse",
       category: "house",
       image: "http://via.placeholder.com/350x250",
@@ -62,8 +62,9 @@ export class RentalService {
  
     getRentalById(rentalId: string): Observable<Rental> {
       return new Observable(observer => {
-        const rental = this.rentals.find(rental => rental._id = rentalId)
+        const rental = this.rentals.find(rental => rental._id === rentalId)
         setTimeout(() => {
+          console.log(rental);
           observer.next(rental);
         },100);
       })

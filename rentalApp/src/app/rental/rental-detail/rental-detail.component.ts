@@ -5,7 +5,7 @@ import { Rental } from '../shared/rental.model';
 @Component({
   selector: 'app-rental-detail',
   templateUrl: './rental-detail.component.html',
-  styleUrls: ['./rental-detail.component.css']
+  styleUrls: ['./rental-detail.component.scss']
 })
 export class RentalDetailComponent implements OnInit {
 rental: Rental;
@@ -15,8 +15,8 @@ rental: Rental;
 
   ngOnInit() {
     this.route.params.subscribe(params =>{
-     const rentalId = params['rentalId'];
-     this.rentalService.getRentalById(rentalId)
+    // const rentalId = params['rentalId'];
+     this.rentalService.getRentalById(params['rentalId'])
      .subscribe(rental =>{
       this.rental = rental;
      })
