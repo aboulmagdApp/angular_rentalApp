@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Rental } from './rental.model';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -60,11 +60,19 @@ export class RentalService {
       createdAt: "24/12/2017"
     }]
  
+    getRentalById(rentalId: string): Observable<Rental> {
+      return new Observable(observer => {
+        const rental = this.rentals.find(rental => rental._id = rentalId)
+        setTimeout(() => {
+          observer.next(rental);
+        },100);
+      })
+    }
     getRentals(): Observable<Rental[]> {
      return new Observable(observer =>{
       setTimeout(() =>{
         observer.next(this.rentals);
-      }, 100)
+      }, 100);
      })
     }
 
