@@ -7,9 +7,12 @@
     <app-rental-card 
       [rental]="rental" 
       ></app-rental-card>
-      <div *appNgIf="rental.category === 'house'">
+      <!-- <div *appNgIf="rental.category === 'house'">
         <h1>I am a house!</h1>
-      </div>
+      </div> -->
+    </div>
+    <div *appNgFor="let num of [1,2,3]" class="col-md-3 col-xs-12">
+      {{num}}
     </div>
   </div>
 </div>
