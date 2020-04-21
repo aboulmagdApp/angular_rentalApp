@@ -7,7 +7,7 @@ import { IRental, AppStorage } from "../shared/rental.interface";
 @Component({
   selector: 'app-rental-listing',
   templateUrl: './rental-listing.component.html',
-  styleUrls: ['./rental-listing.component.css']
+  styleUrls: ['./rental-listing.component.scss']
 })
 export class RentalListingComponent implements OnInit, IRental {
   rentals: Rental[] = [];
@@ -19,7 +19,7 @@ export class RentalListingComponent implements OnInit, IRental {
 
   ngOnInit() {
     const appStorange = new AppStorage<number>();
-    
+
     this.rentalService.getRentals().subscribe((rentals: Rental[]) => {
       this.rentals = rentals;
     });
