@@ -14,7 +14,7 @@ export class RentalListingComponent implements OnInit, IRental {
 
   someData = 'some data';
   isLoaded = false;
-
+  parenData = 10;
   constructor(private rentalService: RentalService) { }
 
   ngOnInit() {
@@ -23,6 +23,10 @@ export class RentalListingComponent implements OnInit, IRental {
     this.rentalService.getRentals().subscribe((rentals: Rental[]) => {
       this.rentals = rentals;
     });
+  }
+
+  changeParentData(value){
+    this.parenData = value;
   }
 
   implementMe() {
