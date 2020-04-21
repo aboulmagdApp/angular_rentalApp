@@ -7,7 +7,7 @@ import { RentalListingComponent } from './rental-listing/rental-listing.componen
 import { RentalComponent } from './rental.component';
 import { RentalCardComponent } from '../shared/rental-card/rental-card.component';
 import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
-import { HighlightDirective } from '../shared/directives/custom.directive';
+import { HighlightDirective, NgIfDirective } from '../shared/directives/custom.directive';
 
 const routes : Routes = [
   {
@@ -28,7 +28,8 @@ const routes : Routes = [
     RentalCardComponent,
     UppercasePipe,
     FirstUpperLetterPipe,
-    HighlightDirective
+    HighlightDirective,
+    NgIfDirective
   ],
   imports: [
    RouterModule.forChild(routes),

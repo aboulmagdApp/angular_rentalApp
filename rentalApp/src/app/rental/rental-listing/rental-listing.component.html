@@ -7,13 +7,9 @@
     <app-rental-card 
       [rental]="rental" 
       ></app-rental-card>
-
-      <!-- 2 way ata binding is transformed into this -->
-      <!-- <app-rental-card 
-      [rental]="rental" 
-      [childData]="parenData"
-      (childDataChange)="changeParentData($event)"
-      ></app-rental-card> -->
+      <div *appNgIf="rental.category === 'house'">
+        <h1>I am a house!</h1>
+      </div>
     </div>
   </div>
 </div>
