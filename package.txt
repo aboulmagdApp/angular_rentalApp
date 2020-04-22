@@ -1,3 +1,9 @@
 - npm i bootstrap --save
 - npm i --save jquery@3.4.1
 - npm i font-awesome --save
+
+
+=================
+create node server
+=================
+- npm install express --save
