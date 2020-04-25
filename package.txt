@@ -8,3 +8,4 @@ create node server
 =================
 - npm install express --save
 - npm i body-parser --save
+- npm i mongoose --save
