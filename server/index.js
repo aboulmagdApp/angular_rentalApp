@@ -1,13 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./config/dev');
 
+// routes
 const rentalRoutes = require('./routes/rental');
+
+// models
+const Rental = require('./models/rental');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = 'mongodb://aboulmagd:aqtkOcbhYbQD0biM@cluster0-shard-00-00-vjxvu.mongodb.net:27017,cluster0-shard-00-01-vjxvu.mongodb.net:27017,cluster0-shard-00-02-vjxvu.mongodb.net:27017/bwmNewDev?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
-mongoose.connect(MONGODB_URI, {
+
+mongoose.connect(config.DB_URI, {
     useNewUrlParser: true, 
     useUnifiedTopology: true
 },() =>{
