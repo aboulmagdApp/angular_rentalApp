@@ -9,9 +9,4 @@ router.get('/:rentalId', rentalController.getRentalById);
 
 router.post('', rentalController.createRental);
 
-router.delete('/:id', rentalController.deleteRental);
-
-router.patch('/:id', rentalController.updateRental);
-
-
 module.exports = router;
