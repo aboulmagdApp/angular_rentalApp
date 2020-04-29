@@ -1,49 +1,38 @@
 
 const rentals = [
-    {
-        title: 'central Apartment',
-        city: 'new yourk',
-        street: 'times square',
-        category: 'apartment',
-        image: 'http://via.placeholder.com/350x250',
-        numOfRooms: 3,
-        description: 'very nice apartment',
-        dailyPrice: 34,
-        shared: false
-      },
-      {
-        title: 'Central Apartment 2',
-        city: "san francisco",
-        street: "Main street",
-        category: "condo",
-        image: "http://via.placeholder.com/350x250",
-        numOfRooms: 2,
-        description: "Very nice apartment",
-        dailyPrice: 12,
-        shared: true
-      },
-      {
-        title: "Central Apartment 3",
-        city: "bratislava",
-        street: "Hlavna",
-        category: "condo",
-        image: "http://via.placeholder.com/350x250",
-        numOfRooms: 2,
-        description: "Very nice apartment",
-        dailyPrice: 334,
-        shared: true
-      },
-      {
-        title: "Central Apartment 4",
-        city: "berlin",
-        street: "Haupt strasse",
-        category: "house",
-        image: "http://via.placeholder.com/350x250",
-        numOfRooms: 9,
-        description: "Very nice apartment",
-        dailyPrice: 33,
-        shared: true
-      }
+  {
+    title: "Nice view on ocean",
+    city: "San Francisco",
+    street: "Main street",
+    category: "condo",
+    image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
+    numOfRooms: 4,
+    shared: true,
+    description: "Very nice apartment in center of the city.",
+    dailyPrice: 43
+  },
+  {
+    title: "Modern apartment in center",
+    city: "New York",
+    street: "Time Square",
+    category: "apartment",
+    image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
+    numOfRooms: 1,
+    shared: false,
+    description: "Very nice apartment in center of the city.",
+    dailyPrice: 11
+  },
+  {
+    title: "Old house in nature",
+    city: "Bratislava",
+    street: "Letna 7",
+    category: "house",
+    image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
+    numOfRooms: 5,
+    shared: true,
+    description: "Very nice apartment in center of the city.",
+    dailyPrice: 23
+  }
 ]
 
 

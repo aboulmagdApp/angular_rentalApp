@@ -12,10 +12,10 @@ export class RentalService {
  }
 
     getRentalById(rentalId: string): Observable<Rental> {
-      return this.http.get<Rental>(`http://localhost:4200/api/v1/rentals/${rentalId}`);
+      return this.http.get<Rental>(`/api/v1/rentals/${rentalId}`);
     }
     getRentals(): Observable<Rental[]> {
-     return this.http.get<Rental[]>(`http://localhost:4200/api/v1/rentals`);
+     return this.http.get<Rental[]>(`/api/v1/rentals`);
     }
 
 }
