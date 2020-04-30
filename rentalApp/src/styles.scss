@@ -43,4 +43,9 @@ html, body, p {
         color: #ffffff;
         box-shadow: none;
     }
+    &:disabled{
+       cursor: auto;
+       background-color: transparent;
+       color:$dark-red-color;
+    }
 }
