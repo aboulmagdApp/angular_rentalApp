@@ -15,22 +15,36 @@
                 type="email"
                 class="form-control"
                 id="email">
-            <!-- <div class="alert alert-danger">
-              <div>
+            <div  *ngIf="email.invalid && !email.pristine"
+                  class="alert alert-danger">
+              <div *ngIf="email.errors.required">
                 Email is required.
               </div>
-              <div>
+              <div *ngIf="email.errors.pattern">
                 Must be valid email format!
               </div>
-            </div> -->
+            </div>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input formControlName="password" type="password"
                    class="form-control"
                    id="password">
+           <div  *ngIf="password.invalid && !password.pristine"
+                   class="alert alert-danger">
+               <div *ngIf="password.errors.required">
+                password is required.
+               </div>
+               <div *ngIf="password.errors.minlength">
+                Minimul length of password is 6 characters
+               </div>
+             </div>
           </div>
-          <button type="submit" class="btn bwm-btn-main">Submit</button>
+          <button 
+              [disabled]="loginForm.invalid"
+              (click)="login()"
+              type="submit" 
+              class="btn bwm-btn-main">Submit</button>
         </form>
         <!-- <div *ngIf="errors.length > 0" class="alert alert-danger">
           <p *ngFor="let error of errors">
