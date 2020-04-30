@@ -6,29 +6,86 @@
         <form>
           <div class="form-group">
             <label for="username">Username</label>
-            <input [(ngModel)]="loginFormData.username" name="username" type="text" class="form-control" id="username">
-            <!-- <div class="alert alert-danger">
+            <input 
+              [(ngModel)]="registerFormData.username" 
+              #username="ngModel"
+              minlength="6"
+              required 
+              name="username" 
+              type="text" 
+              class="form-control" 
+              id="username">
+            <div *ngIf="username.invalid && username.pristine === false" class="alert alert-danger">
               <div *ngIf="username.errors.required">
-                Username is required.
+                username is required!
               </div>
-            </div> -->
+              <div *ngIf="username.errors.minlength">
+                username must be at least 4 characters long!
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input [(ngModel)]="loginFormData.email" name="email" type="email" class="form-control" id="email">
+            <input 
+              [(ngModel)]="registerFormData.email" 
+              #email="ngModel"
+              required
+              [pattern]="emailPattern"
+              name="email" 
+              type="email" 
+              class="form-control" 
+              id="email">
+              <div *ngIf="email.invalid && email.pristine === false" class="alert alert-danger">
+                <div *ngIf="email.errors.required">
+                  email is required!
+                </div>
+                <div *ngIf="email.errors.pattern">
+                  email format is not valid!
+                </div>
+              </div>
           </div>
 
           <div class="form-group">
             <label for="password">Password</label>
-            <input [(ngModel)]="loginFormData.password" name="password" type="password" class="form-control"
-              id="password">
+            <input 
+                [(ngModel)]="registerFormData.password" 
+                #password="ngModel" 
+                required
+                minlength="6"
+                name="password" 
+                type="password" 
+                class="form-control"
+                id="password">
+              <div *ngIf="password.invalid && password.pristine === false" class="alert alert-danger">
+                <div *ngIf="password.errors.required">
+                  password is required!
+                </div>
+                <div *ngIf="password.errors.minlength">
+                  password must be at least 6 characters long!
+                </div>
+              </div>
           </div>
 
           <div class="form-group">
             <label for="passwordConfirmation">Confirm Password</label>
-            <input [(ngModel)]="loginFormData.passwordConfirmation" name="passwordConfirmation" type="password"
-              class="form-control" id="passwordConfirmation">
+            <input 
+              [(ngModel)]="registerFormData.passwordConfirmation" 
+              required
+              #passwordConfirmation="ngModel"
+              minlength="6"
+              name="passwordConfirmation" 
+              type="password"
+              class="form-control" 
+              id="passwordConfirmation">
+              <div *ngIf="passwordConfirmation.invalid && passwordConfirmation.pristine === false" class="alert alert-danger">
+                <div *ngIf="passwordConfirmation.errors.required">
+                  passwordConfirmation is required!
+                </div>
+                <div *ngIf="passwordConfirmation.errors.minlength">
+                  passwordConfirmation must be at least 6 characters long!
+                </div>
+              </div>
           </div>
           <button (click)="register()" type="submit" class="btn bwm-btn-main">Submit</button>
         </form>
@@ -47,4 +104,4 @@
     </div>
   </div>
 </section>
-{{loginFormData | json}}
+{{registerFormData | json}}
