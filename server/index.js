@@ -9,14 +9,17 @@ const usersRoutes = require('./routes/users');
 
 
 // models
-const Rental = require('./models/rental');
+require('./models/rental');
+require('./models/user');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 mongoose.connect(config.DB_URI, {
     useNewUrlParser: true, 
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 },() =>{
         console.log('Connect to DB!');
     });
