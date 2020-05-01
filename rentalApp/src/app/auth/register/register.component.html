@@ -31,6 +31,7 @@
               [(ngModel)]="registerFormData.email" 
               #email="ngModel"
               required
+              forbiddenEmail="test@test.eg"
               [pattern]="emailPattern"
               name="email" 
               type="email" 
@@ -39,6 +40,9 @@
               <div *ngIf="email.invalid && email.pristine === false" class="alert alert-danger">
                 <div *ngIf="email.errors.required">
                   email is required!
+                </div>
+                <div *ngIf="email.errors.forbiddenEmail">
+                  this Email is not allowed.
                 </div>
                 <div *ngIf="email.errors.pattern">
                   email format is not valid!
@@ -87,15 +91,15 @@
                 </div>
               </div>
           </div>
-          <button 
-            (click)="register(registerForm)" 
-            type="submit" 
-            class="btn bwm-btn-main">Submit</button>
-            <!-- <button 
-            [disabled]="registerForm.invalid"
+          <!-- <button 
             (click)="register(registerForm)" 
             type="submit" 
             class="btn bwm-btn-main">Submit</button> -->
+            <button 
+            [disabled]="registerForm.invalid"
+            (click)="register(registerForm)" 
+            type="submit" 
+            class="btn bwm-btn-main">Submit</button>
         </form>
         <!-- <div class="alert alert-danger">
           <p *ngFor="let error of errors">
