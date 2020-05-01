@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
-import { forbiddenEmailValidator } from '../../shared/validators/functions';
+import { forbiddenEmailValidator, sameAsValidator } from '../../shared/validators/functions';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.initForm();
   }
-
   initForm(){
     this.loginForm = this.fb.group({
       email: ['', [
@@ -26,8 +25,19 @@ export class LoginComponent implements OnInit {
         forbiddenEmailValidator('aboulmagd@live.com')
       ]],
       password: ['', [Validators.required, Validators.minLength(6)]]
-    })
+    });
   }
+  // initForm(){
+  //   this.loginForm = this.fb.group({
+  //     email: ['', [
+  //       Validators.required, 
+  //       Validators.pattern(this.emailPattern), 
+  //       forbiddenEmailValidator('aboulmagd@live.com')
+  //     ]],
+  //     password: ['', [Validators.required, Validators.minLength(6)]]
+  //   },
+  //   {validators: [sameAsValidator(['password', 'email'])]});
+  // }
 
   login(){
     if(this.loginForm.invalid){return;}
