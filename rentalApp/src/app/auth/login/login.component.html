@@ -15,10 +15,13 @@
                 type="email"
                 class="form-control"
                 id="email">
-            <div  *ngIf="email.invalid && !email.pristine"
+              <div  *ngIf="email.invalid && !email.pristine"
                   class="alert alert-danger">
               <div *ngIf="email.errors.required">
                 Email is required.
+              </div>
+              <div *ngIf="email.errors.forbiddenEmail">
+                this Email is not allowed.
               </div>
               <div *ngIf="email.errors.pattern">
                 Must be valid email format!
