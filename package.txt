@@ -10,3 +10,4 @@ create node server
 - npm i body-parser --save
 - npm i mongoose --save
 - npm i --save bcryptjs
+- npm i jsonwebtoken --save
