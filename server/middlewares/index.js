@@ -3,6 +3,13 @@
 
 exports.provideErrorHandler = (req, res, next) => {
 
+    res.sendApiError =  config =>{
+        const { status, title, detail } = config;
+        return res
+            .status(status)
+            .send({ errors: [{ title, detail }] })
+    }
+
     res.mongoError = dbError => {
         const normalizedErrors = [];
         const errorField = 'errors';
@@ -18,7 +25,7 @@ exports.provideErrorHandler = (req, res, next) => {
             normalizedErrors.push({ title: 'DB Error', detail: 'Oooops, somthing went wrong!' })
         }
 
-        return res.status(422).send({errors: normalizedErrors});
+        return res.status(422).send({ errors: normalizedErrors });
     }
 
     next();
