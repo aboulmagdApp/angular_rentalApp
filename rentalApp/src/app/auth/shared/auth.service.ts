@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { extractApiError } from 'src/app/shared/helpers/functions';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import * as moment from 'moment';
 
 const jwt = new JwtHelperService();
 
@@ -51,5 +52,17 @@ private decodedToken: DecodedToken;
       this.decodedToken = decodedToken;
       localStorage.setItem('bwm_auth_token', token);
       return token;
+    }
+
+    get isAuthenticated(): boolean {
+      return moment().isBefore(this.expiration)
+     }
+
+    get username(): string{
+      return this.decodedToken.username;
+    }
+
+    private get expiration(){
+      return moment.unix(this.decodedToken.exp);
     }
 }
