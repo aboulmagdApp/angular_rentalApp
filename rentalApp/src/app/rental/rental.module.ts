@@ -9,6 +9,8 @@ import { RentalComponent } from './rental.component';
 import { RentalCardComponent } from '../shared/rental-card/rental-card.component';
 import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
 import { HighlightDirective, NgIfDirective, appNgForDirective } from '../shared/directives/custom.directive';
+import { RentalSecretComponent } from './rental-secret/rental-secret.component';
+import { AuthGuard } from '../auth/shared/auth.gurd';
 
 
 const routes : Routes = [
@@ -17,6 +19,7 @@ const routes : Routes = [
     component: RentalComponent,
     children:[
       {path: '', component: RentalListingComponent},
+      {path: 'secret', component: RentalSecretComponent, canActivate: [AuthGuard]},
       {path: ':rentalId', component: RentalDetailComponent}
     ]
   }
@@ -32,7 +35,8 @@ const routes : Routes = [
     FirstUpperLetterPipe,
     HighlightDirective,
     NgIfDirective,
-    appNgForDirective
+    appNgForDirective,
+    RentalSecretComponent
   ],
   imports: [
    RouterModule.forChild(routes),

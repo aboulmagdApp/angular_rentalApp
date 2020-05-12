@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
     this.auth.checkAuthentication();
   }
 
-  logout(){
+  logout =() =>{
     this.auth.logout();
     this.router.navigate(['/rentals']);
   }
