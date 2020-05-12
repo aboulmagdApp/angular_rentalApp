@@ -19,7 +19,7 @@
       </li>
       <div *ngIf="isAuthenticated else notAuthMenu">
         <li class="nav-item">
-          <a class="nav-link">logout</a>
+          <a (click)="logout()" class="nav-link">logout</a>
         </li>
       </div>
       <ng-template #notAuthMenu>

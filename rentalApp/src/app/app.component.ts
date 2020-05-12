@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,16 @@ import { AuthService } from './auth/shared/auth.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private auth: AuthService) {        
+  constructor(private auth: AuthService, private router: Router) {        
   }
-  
+
   ngOnInit() {
     this.auth.checkAuthentication();
+  }
+
+  logout(){
+    this.auth.logout();
+    this.router.navigate(['/rentals']);
   }
 
 }

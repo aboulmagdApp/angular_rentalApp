@@ -74,7 +74,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       .login(this.loginForm.value)
       .subscribe((token: string) =>{
         this.router.navigate(['/rentals']);
-        console.log(token);
       }, (errors: BwmApi.Error[]) =>{
         this.errors = errors;
       })
