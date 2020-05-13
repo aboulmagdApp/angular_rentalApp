@@ -1,16 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import tt from '@tomtom-international/web-sdk-maps';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class MapComponent implements OnInit {
-@Input() location: string;
-
+export class MapComponent {
+@Input() set location(location: string){
+    this.createMap();
+} ;
+private readonly API_KEY = 'NhIjFC1GbTNcmr2U4QvYAV0XjL4IJhOR'
   constructor() { }
 
-  ngOnInit() {
+  private createMap(){
+    const map = tt.map({
+      key: this.API_KEY,
+      container: 'app-map',
+      style: 'tomtom://vector/1/basic-main'
+    });
+    map.addControl(new tt.NavigationControl());
   }
 
 }
