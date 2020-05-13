@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import tt from '@tomtom-international/web-sdk-maps';
+import { MapService } from './map.service';
 
 @Component({
   selector: 'app-map',
@@ -8,19 +9,26 @@ import tt from '@tomtom-international/web-sdk-maps';
   encapsulation: ViewEncapsulation.None
 })
 export class MapComponent {
-@Input() set location(location: string){
+  @Input() set location(location: string) {
     this.createMap();
-} ;
-private readonly API_KEY = 'NhIjFC1GbTNcmr2U4QvYAV0XjL4IJhOR'
-  constructor() { }
+    this.getGeoLocation(location);
+  };
 
-  private createMap(){
+  constructor(private mapService: MapService) { }
+
+  private createMap() {
     const map = tt.map({
-      key: this.API_KEY,
+      key: this.mapService.API_KEY,
       container: 'app-map',
       style: 'tomtom://vector/1/basic-main'
     });
     map.addControl(new tt.NavigationControl());
   }
 
+  private getGeoLocation(location: string) {
+    this.mapService.requestGeoLocation(location).subscribe(ttRes =>{
+      debugger
+      console.log(ttRes);
+    });
+  }
 }
