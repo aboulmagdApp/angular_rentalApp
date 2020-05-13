@@ -11,6 +11,7 @@ import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.p
 import { HighlightDirective, NgIfDirective, appNgForDirective } from '../shared/directives/custom.directive';
 import { RentalSecretComponent } from './rental-secret/rental-secret.component';
 import { AuthGuard } from '../auth/shared/auth.gurd';
+import { MapModule } from '../shared/modules/map/map.module';
 
 
 const routes : Routes = [
@@ -41,7 +42,8 @@ const routes : Routes = [
   imports: [
    RouterModule.forChild(routes),
    CommonModule,
-   HttpClientModule
+   HttpClientModule,
+   MapModule
   ]
 })
 export class RentalModule { }

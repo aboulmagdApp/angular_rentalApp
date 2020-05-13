@@ -1,9 +1,3 @@
-<!-- <div *ngIf="rental && rental._id">
-  <h1>{{rental._id}}</h1>
-  <h1>{{rental.title}}</h1>
-  <h1>{{rental.description}}</h1>
-  <h1>{{rental.shared}}</h1>
-</div>  -->
 <section
   *ngIf="rental && rental._id"
   id="rentalDetails">
@@ -15,7 +9,9 @@
       </div>
       <div class="col-md-6">
         <!-- TODO: Display rental image -->
-        <img [src]="rental.image" alt="">
+        <app-map
+        [location]="rentalLocation">
+        </app-map>
       </div>
     </div>
   </div>
